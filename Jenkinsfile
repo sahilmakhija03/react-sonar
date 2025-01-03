@@ -15,7 +15,7 @@ pipeline {
                 checkout scm
             }
         }
- 
+
         stage('Install Dependencies') {
             steps {
                 // Set the PATH and install dependencies using npm
@@ -25,7 +25,7 @@ pipeline {
                 '''
             }
         }
- 
+
         stage('Lint') {
             steps {
                 // Run linting to ensure code quality
@@ -35,7 +35,7 @@ pipeline {
                 '''
             }
         }
- 
+
         stage('Build') {
             steps {
                 // Build the React app
@@ -45,7 +45,7 @@ pipeline {
                 '''
             }
         }
- 
+
         stage('SonarQube Analysis') {
             environment {
                 SONAR_TOKEN = credentials('sonar-token') // Accessing the SonarQube token stored in Jenkins credentials
@@ -63,7 +63,7 @@ pipeline {
             }
         }
     }
- 
+
     post {
         success {
             echo 'Pipeline completed successfully'
